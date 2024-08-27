@@ -1,0 +1,30 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.Dogs {
+  /* flex: 1; */
+  /* width: 80vh; */
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+.Cats {
+  /* flex: 1; */
+  background: green;
+  /* width: 200; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
