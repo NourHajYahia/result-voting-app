@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-
-const socket = io('http://localhost:5001'); // Adjust the URL as needed
+const socketUrl = process.env.SOCKET_IO_API_URL;
+const socket = io(socketUrl); // Adjust the URL as needed
 
 
 
 function App() {
+
+  const apiUrl = process.env.BACKEND_API_URL;
+
   const [votes, setVotes] = useState({ dog: 0, cat: 0 });
 
   const [error, setError] = useState(null);
@@ -17,7 +20,7 @@ function App() {
 
     const fetchVoteResults = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/vote-results');
+        const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
