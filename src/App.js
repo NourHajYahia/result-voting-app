@@ -3,14 +3,12 @@ import io from 'socket.io-client';
 import './App.css';
 
 
-// const socketUrl = 'http://backend:4000/';
 const socket = io('http://localhost:4000'); // Adjust the URL as needed
 
 
 function App() {
 
   const apiUrl = 'http://localhost:4000/api/vote-results';
-  // console.log("ioUrl: ", socketUrl);
   console.log("apiUrl: ", apiUrl);
 
   const [votes, setVotes] = useState({ dog: 0, cat: 0 });
