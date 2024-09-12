@@ -45,13 +45,13 @@ function App() {
     // Listen for the 'voteCountUpdated' event
     socket.on('voteCountUpdated', (updatedDocument) => {
       console.log('Received updated document:', updatedDocument);
-      console.log("animal: ", updatedDocument.animal)
-      console.log("count: ", updatedDocument.count)
+      console.log("animal: ", updatedDocument.fullDocument.animal)
+      console.log("count: ", updatedDocument.fullDocument.count)
       
       // Update the state with the new count
       setVotes((prevVotes) => ({
         ...prevVotes,
-        [updatedDocument.animal.toLowerCase()]: updatedDocument.count,
+        [updatedDocument.fullDocument.animal.toLowerCase()]: updatedDocument.fullDocument.count,
       }));
     });
 
@@ -74,3 +74,4 @@ function App() {
 }
 
 export default App;
+
