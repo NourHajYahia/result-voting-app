@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-const socketUrl = process.env.SOCKET_IO_API_URL;
-const socket = io(socketUrl); // Adjust the URL as needed
 
+// const socketUrl = 'http://backend:4000/';
+const socket = io('http://localhost:4000'); // Adjust the URL as needed
 
 
 function App() {
 
-  const apiUrl = process.env.BACKEND_API_URL;
+  const apiUrl = 'http://localhost:4000/api/vote-results';
+  // console.log("ioUrl: ", socketUrl);
+  console.log("apiUrl: ", apiUrl);
 
   const [votes, setVotes] = useState({ dog: 0, cat: 0 });
 
@@ -25,6 +27,7 @@ function App() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log("data: ", data);
         
         // Initialize votes with fetched data
         const initialVotes = data.reduce((acc, item) => {
