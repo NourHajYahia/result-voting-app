@@ -8,6 +8,6 @@ metadata:
 spec:
   containers:
     - name: result-app
-      image: ../:v1
+      image: gipsyone/result-app:latest
       ports:
         - containerPort: 80
