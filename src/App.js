@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-
-const socket = io('http://localhost:4000'); // Adjust the URL as needed
+const backendUrl = process.env.REACT_APP_BACKEND_URL; // Access the environment variable
+const socket = io(backendUrl); // Adjust the URL as needed
 
 
 function App() {
 
-  const apiUrl = 'http://localhost:4000/api/vote-results';
+  const apiUrl = backendUrl + '/api/vote-results';
   console.log("apiUrl: ", apiUrl);
 
   const [votes, setVotes] = useState({ dog: 0, cat: 0 });
